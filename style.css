@@ -140,22 +140,22 @@ label{
     gap: 2rem;
 }
 
-.tip-amount, .total{
+.tip-amount, .bill-amount, .total{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.tip-amount h2, .total h2{
+.tip-amount h2, .bill-amount h2, .total h2{
     color: var(--Strong-cyan);
     font-size: 2rem;
 }
 
-.tip-amount p, .total p{
+.tip-amount p, .bill-amount p, .total p{
     color: var(--white);
 }
 
-.tip-amount span, .total span{
+.tip-amount span, .bill-amount span, .total span{
     font-size: 12px;
     color: var(--Grayish-cyan);
 }

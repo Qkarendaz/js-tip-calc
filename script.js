@@ -5,6 +5,7 @@ const billTipAmount = document.getElementById("tipAmount");
 const billTotalPerPerson = document.getElementById("total");
 const resetButton = document.getElementById("resetBtn");
 const buttons = document.querySelectorAll(".tip-btns button");
+const totalBill = document.getElementById("billTotal");
 
 buttons.forEach ((button) => {
     button.addEventListener("click", (e) => {
@@ -37,12 +38,15 @@ customTipPercentage.addEventListener("blur", (e) => {
 
 function calculateTip(billAmount, tipPercentage, numberOfPeople) {
     let tipAmount = (billAmount * (tipPercentage / 100) / numberOfPeople);
-    let tip = Math.flloor(tipAmount *100) / 100;
+    let tip = Math.floor(tipAmount *100) / 100;
     tip = tip.toFixed(2);
 
     let totalAmount = (tipAmount * numberOfPeople + billAmount) / numberOfPeople;
     totalAmount = totalAmount.toFixed(2);
 
+    let totalBillAmount = billAmount.toFixed(2);
+
+    totalBill.innerHTML = `$${totalBillAmount}`;
     billTipAmount.innerHTML = `$${tip}`;
     billTotalPerPerson.innerHTML = `$${totalAmount}`;
 
@@ -51,6 +55,7 @@ function calculateTip(billAmount, tipPercentage, numberOfPeople) {
 resetButton.addEventListener("click", resetEverything);
 
 function resetEverything() {
+    totalBill.innerHTML = "$0.00";
     billTipAmount.innerHTML = "$0.00";
     billTotalPerPerson.innerHTML = "$0.00";
     billAmount.value = "";
